@@ -31,8 +31,8 @@ WORKDIR "/root"
 # Setup Northwind Data #
 ########################
 
-ARG NORTHWIND_SQL_GITHUB="https://github.com/Microsoft/sql-server-samples/blob/master/samples/databases/northwind-pubs/instnwnd.sql"
-ARG NORTHWIND_SQL="instnwnd.sql"
+ARG NORTHWIND_SQL_GITHUB="https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/databases/northwind-pubs/instnwnd.sql"
+ARG NORTHWIND_SQL="/usr/share/instnwnd.sql"
 RUN wget "${NORTHWIND_SQL_GITHUB}" -O "${NORTHWIND_SQL}"
-#RUN sqlcmd -S "localhost" -U "sa" -P "${SQL_PASSWD}" -i "${NORTHWIND_SQL}"
+COPY entrypoint .
 
